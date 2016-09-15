@@ -17,7 +17,7 @@ public class SelectionSort {
 			//find min
 			int min = arr[i];
 			int pos=i;
-			for (int j = i; j < length; j++) {
+			for (int j = i+1; j < length; j++) {
 				
 				if(arr[j]<min){
 					min=arr[j];
