@@ -45,6 +45,7 @@ public class MergeSort {
 		return arr;
 	}
 	
+	
 	public static int[] mergeSort(int[] arr){
 		
 		if(arr==null || arr.length==0){
@@ -64,6 +65,11 @@ public class MergeSort {
 		mergeSort(left);
 		mergeSort(right);
 		merge(left, right, arr);
+		
+		//memory optimization
+		left=null;
+		right=null;
+		System.gc();
 		return arr;
 	}
 
