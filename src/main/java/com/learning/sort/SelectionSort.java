@@ -5,12 +5,13 @@ public class SelectionSort {
 
 	public static int[] selectionSort(int[] arr){
 		
-		int length = arr.length;
+		
 		if(arr == null || arr.length==0){
 			System.out.println("Invalid input");
 			return null;
 		}
 		
+		int length = arr.length;
 		for (int i = 0; i < length-1; i++) {
 		
 			//find min
