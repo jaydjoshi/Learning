@@ -44,7 +44,7 @@ public class BinarySearch {
 		else{
 			System.out.println("Number is not present");
 		}
-
+		
 	}
 
 	
