@@ -2,7 +2,7 @@ package com.learning.dataStructure;
 
 import java.util.Scanner;
 
-/*
+/**
  * check if the passed string of brackets is valid or not
  * valid - (()(())())
  * invalid - )(())()(
