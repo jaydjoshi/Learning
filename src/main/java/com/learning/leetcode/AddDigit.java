@@ -13,7 +13,7 @@ public class AddDigit {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(addDigits(29));
+		System.out.println(addDigits1(2999373));
 	}
 	
 	public static int addDigits(int num) {
@@ -30,5 +30,14 @@ public class AddDigit {
         return digit;
         
     }
-
+	
+	//better approach
+	public static int addDigits1(int num) {
+	if (num==0) 
+		return 0;
+	else if (num%9==0)
+		return 9;
+	else
+	    return num%9;  
+	}
 }
