@@ -1,6 +1,8 @@
 package com.learning.leetcode.PhoneDirectory;
 
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PhoneDirectoryMain {
 
@@ -18,6 +20,13 @@ public class PhoneDirectoryMain {
 		
 		String name = "abc";
 		System.out.println("Number for "+name + " is "+phone.get("abc"));
+		
+		Map<String,Long> mapFilter = phone.getNameDirectory("^a*");
+		mapFilter.forEach( (k,v) -> System.out.println("Name : "+k+"\tNumber: "+v ));
+		/*
+		Pattern p = Pattern.compile("a*");
+		Matcher m = p.matcher("abc");
+		System.out.println(m.find());*/
 	}
 
 }

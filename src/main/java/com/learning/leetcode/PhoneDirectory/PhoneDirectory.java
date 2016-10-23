@@ -1,7 +1,10 @@
 package com.learning.leetcode.PhoneDirectory;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PhoneDirectory implements PhoneDirectoryInterface {
 	
@@ -26,6 +29,22 @@ public class PhoneDirectory implements PhoneDirectoryInterface {
 	public Map<String, Long> getEntireDirectory() {
 		// TODO Auto-generated method stub
 		return phoneDirectory;
+	}
+
+	@Override
+	public Map<String, Long> getNameDirectory(String name) {
+		// TODO Auto-generated method stub
+		Pattern p = Pattern.compile(name);
+		Matcher m = null;
+		Map<String,Long> filterPhoneDirectory = new TreeMap<>();
+		for (Entry<String, Long> element : phoneDirectory.entrySet()) {
+			m = p.matcher(element.getKey());
+			if(m.matches())
+				filterPhoneDirectory.put(element.getKey(), element.getValue());			
+		}
+		
+		
+		return filterPhoneDirectory;
 	}	
 
 	
