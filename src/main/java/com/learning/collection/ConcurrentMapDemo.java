@@ -35,7 +35,10 @@ public class ConcurrentMapDemo {
 		while (iterator.hasNext()) {
 			Entry object = (Entry) iterator.next();
 			System.out.println(object.getKey()+" - "+object.getValue());
-			map.remove("jay");
+			if(object.getKey().equals("jay"))
+			iterator.remove();
+			//map.remove("jay");
+			//map.put("A", 4);
 		}
 		
 		map.forEach( (k,v)-> System.out.println("Key: " + k + ": Value: " + v));

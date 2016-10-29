@@ -5,20 +5,32 @@ public class ThreadInterference {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Thread t1 = new Thread(new Counter(), "Counter1");
+		Counter c =new Counter();
+		Thread t1 = new Thread(c, "Counter1");
+		Thread t2 = new Thread(c, "Counter2");
+		System.out.println("Before value is : "+c.value());
 		t1.start();
-		Thread t2 = new Thread(new Counter(), "Counter2");
 		t2.start();
+		try {
+			t1.join();
+			t2.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		System.out.println("After value is : "+c.value());
 	}
 
 }
 
 class Counter implements Runnable{
-    private int c = 0;
+    private volatile int c = 0;
 
     public void increment() {
-        c++;
+    	synchronized(this){
+    		c++;
+    	}
     }
 
     public void decrement() {
@@ -32,19 +44,9 @@ class Counter implements Runnable{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < 5; i++) {
-			try {
-				Thread.sleep(1000);
-				increment();
-				Thread.sleep(1500);
-				decrement();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			System.out.println(value());
-			
+		for (int i = 0; i < 10000; i++) {
+			increment();
+			//decrement();
 		}
 		
 	}

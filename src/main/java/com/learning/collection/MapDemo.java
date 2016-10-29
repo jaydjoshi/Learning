@@ -12,9 +12,9 @@ public class MapDemo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//Map<String,Integer> map = new HashMap<>();
+		Map<String,Integer> map = new HashMap<>();
 		//Map<String,Integer> map = new LinkedHashMap<>();
-		Map<String,Integer> map = new TreeMap<>();
+		//Map<String,Integer> map = new TreeMap<>();
 		map.put("jay", 1);
 		map.put("yaj", 2);
 		map.put("ajy", 3);
