@@ -1,5 +1,6 @@
 package com.learning.thread.multithreading;
 
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -31,6 +32,7 @@ class Counterr implements Runnable{
     private int c = 0;
     private Lock lock = new ReentrantLock();
     private Condition con = lock.newCondition();
+    private Semaphore sem = new Semaphore(10);
     
     public void increment() {
     	c++;

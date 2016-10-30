@@ -7,7 +7,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class DeadlockDemo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		Runner run = new Runner();
 		
@@ -15,7 +14,6 @@ public class DeadlockDemo {
 			try {
 				run.methodOne();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		});
@@ -24,7 +22,6 @@ public class DeadlockDemo {
 			try {
 				run.methodTwo();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		});
@@ -36,7 +33,6 @@ public class DeadlockDemo {
 			t1.join();
 			t2.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
