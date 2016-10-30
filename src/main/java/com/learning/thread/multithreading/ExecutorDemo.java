@@ -6,7 +6,11 @@ import java.util.concurrent.Executors;
 public class ExecutorDemo {
 
 	public static void main(String[] args) {
-		Executor executor = Executors.newFixedThreadPool(2);
+		/*Executor executor = Executors.newFixedThreadPool(2);*/
+		/*Executor executor = Executors.newCachedThreadPool();*/
+		/*Executor executor = Executors.newSingleThreadExecutor();*/
+		
+		Executor executor = Executors.newWorkStealingPool(2);
 		
 		for (int i = 0; i < 5; i++) {
 			executor.execute(new ProcessorEx(i));
@@ -16,7 +20,6 @@ public class ExecutorDemo {
 		System.out.println("All task completed. :)");
 	}
 }
-
 
 class ProcessorEx implements Runnable{
 	
