@@ -1,11 +1,14 @@
 package com.learning.thread.multithreading;
 
-public class ThreadInterference {
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
+public class ReentrantLockDemo {
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
-		Counter c =new Counter();
+		Counterr c =new Counterr();
 		Thread t1 = new Thread(c, "Counter1");
 		Thread t2 = new Thread(c, "Counter2");
 		System.out.println("Before value is : "+c.value());
@@ -15,7 +18,6 @@ public class ThreadInterference {
 			t1.join();
 			t2.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -24,18 +26,14 @@ public class ThreadInterference {
 
 }
 
-class Counter implements Runnable{
-    private volatile int c = 0;
 
+class Counterr implements Runnable{
+    private int c = 0;
+    private Lock lock = new ReentrantLock();
+    private Condition con = lock.newCondition();
+    
     public void increment() {
-    	
-    	synchronized(this){
-    		c++;
-    	}
-    }
-
-    public void decrement() {
-        c--;
+    	c++;
     }
 
     public int value() {
@@ -44,10 +42,14 @@ class Counter implements Runnable{
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		for (int i = 0; i < 10000; i++) {
-			increment();
-			//decrement();
+			lock.lock();
+			try{
+				increment();
+			}
+			finally{
+				lock.unlock();
+			}
 		}
 		
 	}
