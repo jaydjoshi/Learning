@@ -1,6 +1,6 @@
 package com.learning.collection;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -17,6 +17,7 @@ public class ArrayListDemo {
 		list.add(4);
 		list.add(5);
 		list.add(6);
+		
 		
 		Iterator<Integer> iterator = list.iterator();
 		while(iterator.hasNext()){
