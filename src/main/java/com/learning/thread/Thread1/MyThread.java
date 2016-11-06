@@ -1,4 +1,4 @@
-package com.learning.thread;
+package com.learning.thread.Thread1;
 
 public class MyThread extends Thread {
 	
