@@ -7,64 +7,19 @@ public class ObjectKeyHashmap {
 	public static void main(String[] args) {
 		HashMap<Employee, Integer> map = new HashMap<>();
 		
-		map.put(new Employee(1, "Jay"), 1);
-		map.put(new Employee(2, "Rohan"), 2);
-		map.put(new Employee(1, "Jay"), 3);
+		Employee e1 = new Employee(1, "Jay");
+		Employee e2 = new Employee(2, "Rohan");
+		map.put(e1, 1);
+		map.put(e2, 2);
+		map.put(e1, 3);
 		
-		map.forEach( (k,v) -> System.out.println("Key "+ k.getId() + " Value "+v));
+		/*e2.setName("Rohan Joshi");
+		e2.setId(5);*/
+		
+		map.forEach( (k,v) -> System.out.println("Key "+ k.getId() +" - "+k.getName() + " Value "+v));
+		System.out.println(map.get(new Employee(2,"Rohan")));
 	}
 
 }
 
 
-class Employee{
-	private int id;
-	private String name;
-	
-	public Employee(int id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-	
-	
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public int hashCode(){
-		return id;
-	}
-	
-	public boolean equals(Object object){
-		if(object == this){
-			return true;
-		}
-		
-		if(object instanceof Employee && object != null){
-			return ((Employee)object).getId() == id ? true : false;
-		}
-		
-		return false;
-	}
-}
