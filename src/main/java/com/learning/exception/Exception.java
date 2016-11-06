@@ -3,14 +3,12 @@ package com.learning.exception;
 public class Exception {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("Start");
 		System.out.println(returnVal());
 		
 		try {
 			System.out.println(returnException());
 		} catch (java.lang.Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

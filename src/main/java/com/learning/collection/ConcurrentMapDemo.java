@@ -3,10 +3,12 @@ package com.learning.collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ConcurrentMapDemo {
 
@@ -20,7 +22,7 @@ public class ConcurrentMapDemo {
 		map.put("yaj", 2);
 		map.put("ajy", 3);
 		
-		
+		List<Integer> list = new CopyOnWriteArrayList<>();
 		
 		
 		/*for (Entry entry : map.entrySet()) {
