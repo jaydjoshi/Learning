@@ -1,4 +1,4 @@
-package com.learning.thread.multithreading;
+package com.learning.thread.multithreading.executors;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
