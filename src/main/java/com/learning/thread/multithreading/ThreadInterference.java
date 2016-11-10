@@ -34,10 +34,6 @@ class Counter implements Runnable{
     	}
     }
 
-    public void decrement() {
-        c--;
-    }
-
     public int value() {
         return c;
     }
@@ -47,7 +43,6 @@ class Counter implements Runnable{
 		// TODO Auto-generated method stub
 		for (int i = 0; i < 10000; i++) {
 			increment();
-			//decrement();
 		}
 		
 	}

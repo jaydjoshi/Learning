@@ -1,4 +1,4 @@
-package com.learning.dataStructure;
+package com.learning.dataStructure.stack;
 
 import java.util.Scanner;
 

@@ -59,7 +59,7 @@ class Employee {
 	Object mutex3 = new Object();
 	
 	public static int getPfPercentage(){
-		synchronized(mutex1){
+		synchronized(Employee.class){
 		try {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
@@ -70,7 +70,7 @@ class Employee {
 		}
 	}
 	
-	public  int getCount(){
+	public int getCount(){
 		
 		synchronized(mutex2){
 		try {
@@ -84,7 +84,7 @@ class Employee {
 		
 	}
 	
-	public  int getCount1(){
+	public int getCount1(){
 		
 		synchronized(mutex3){
 		try {

@@ -29,10 +29,10 @@ public class ReentrantLockDemo {
 
 
 class Counterr implements Runnable{
-    private int c = 0;
+    private volatile int c = 0;
     private Lock lock = new ReentrantLock();
     private Condition con = lock.newCondition();
-    private Semaphore sem = new Semaphore(10);
+    private Semaphore sem = new Semaphore(1);
     
     public void increment() {
     	c++;
@@ -46,11 +46,19 @@ class Counterr implements Runnable{
 	public void run() {
 		for (int i = 0; i < 10000; i++) {
 			lock.lock();
+			/*try {
+				sem.acquire();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
 			try{
 				increment();
+				
 			}
 			finally{
 				lock.unlock();
+				//sem.release();
 			}
 		}
 		

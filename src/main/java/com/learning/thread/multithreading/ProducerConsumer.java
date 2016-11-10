@@ -29,6 +29,7 @@ class Message{
 				e.printStackTrace();
 			}
 		}
+		//message sent variable not variable is not empty
 		empty=false;
 		this.message=message;
 		notifyAll();
@@ -45,6 +46,7 @@ class Message{
 				e.printStackTrace();
 			}
 		}
+		//message received now empty the variable
 		empty=true;
 		notifyAll();
 		System.out.println("Message '"+ message+ "' received!");

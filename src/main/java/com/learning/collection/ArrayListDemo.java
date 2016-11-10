@@ -1,6 +1,6 @@
 package com.learning.collection;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -8,8 +8,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class ArrayListDemo {
 
 	public static void main(String[] args) {
-		//List<Integer> list = new ArrayList<>();
-		List<Integer> list = new CopyOnWriteArrayList<>();
+		List<Integer> list = new ArrayList<>();
+		List<Integer> list1 = new CopyOnWriteArrayList<>();
 		
 		list.add(1);
 		list.add(2);

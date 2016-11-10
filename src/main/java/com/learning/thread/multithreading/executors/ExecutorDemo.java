@@ -6,11 +6,11 @@ import java.util.concurrent.Executors;
 public class ExecutorDemo {
 
 	public static void main(String[] args) {
-		/*Executor executor = Executors.newFixedThreadPool(2);*/
+		Executor executor1 = Executors.newFixedThreadPool(5);
 		/*Executor executor = Executors.newCachedThreadPool();*/
-		/*Executor executor = Executors.newSingleThreadExecutor();*/
+		Executor executor = Executors.newSingleThreadExecutor();
 		
-		Executor executor = Executors.newWorkStealingPool(2);
+		/*Executor executor = Executors.newWorkStealingPool(2);*/
 		
 		for (int i = 0; i < 5; i++) {
 			executor.execute(new ProcessorEx(i));
@@ -34,7 +34,7 @@ class ProcessorEx implements Runnable{
 		//process
 		System.out.println("Start : "+id);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

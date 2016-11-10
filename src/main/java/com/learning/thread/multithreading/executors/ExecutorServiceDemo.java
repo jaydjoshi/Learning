@@ -1,20 +1,24 @@
 package com.learning.thread.multithreading.executors;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class ExecutorServiceDemo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		ExecutorService executor = Executors.newFixedThreadPool(2);
+		java.util.concurrent.Future<Integer> f = null;
 		for (int i = 0; i < 5; i++) {
 			//executor.submit(new Processor(i));
-			 executor.submit(new ProcessCall(i));
+			  f = (java.util.concurrent.Future) executor.submit(new ProcessCall(i));
 		}
 		
 		executor.shutdown();
+		
+		System.out.println(f.get());
 		
 		System.out.println("All task submitted.");
 		try {

@@ -1,4 +1,4 @@
-package com.learning.collection;
+package com.learning.dataStructure.hashMap;
 
 public class HashMapImplMain {
 
