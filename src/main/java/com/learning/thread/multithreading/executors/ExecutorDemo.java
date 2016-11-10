@@ -6,9 +6,9 @@ import java.util.concurrent.Executors;
 public class ExecutorDemo {
 
 	public static void main(String[] args) {
-		Executor executor1 = Executors.newFixedThreadPool(5);
+		Executor executor = Executors.newFixedThreadPool(5);
 		/*Executor executor = Executors.newCachedThreadPool();*/
-		Executor executor = Executors.newSingleThreadExecutor();
+		/*Executor executor = Executors.newSingleThreadExecutor();*/
 		
 		/*Executor executor = Executors.newWorkStealingPool(2);*/
 		
