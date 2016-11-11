@@ -14,8 +14,8 @@ public class ThreadPoolMain {
 		threadPool.execute(new CommonTaskA(3));
 		threadPool.execute(new CommonTaskA(4));
 		
-		//threadPool.stop();
-		threadPool.stopNow();
+		threadPool.stop();
+		//threadPool.stopNow();
 		
 		threadPool.execute(new CommonTaskA(5));
 		
