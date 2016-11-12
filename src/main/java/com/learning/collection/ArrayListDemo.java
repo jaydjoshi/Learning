@@ -2,6 +2,7 @@ package com.learning.collection;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -10,6 +11,7 @@ public class ArrayListDemo {
 
 	public static void main(String[] args) {
 		List<Integer> list = new ArrayList<>();
+		List<Integer> linkedList = new LinkedList<Integer>();
 		List<Integer> list1 = new CopyOnWriteArrayList<>();
 		Stack stack = new Stack();
 		
