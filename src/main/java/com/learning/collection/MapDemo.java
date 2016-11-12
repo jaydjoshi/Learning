@@ -20,7 +20,7 @@ public class MapDemo {
 		map.put("ajy", 3);
 		map.put(null, 2);
 		
-		
+		String s = new String("a");
 		
 		/*for (Entry entry : map.entrySet()) {
 			

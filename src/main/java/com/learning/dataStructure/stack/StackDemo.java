@@ -14,6 +14,8 @@ public class StackDemo {
 		// TODO Auto-generated method stub
 		Stack stack1 = new Stack();
 		
+		Stack stack = new Stack();
+		
 		System.out.println(obj.toString());
 		
 		stack1.push(10);
