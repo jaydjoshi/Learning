@@ -7,7 +7,7 @@ public class ProducerConsumer {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Main method start");
-		Message m = new Message();
+		Message1 m = new Message1();
 		(new Thread(new Producer(m))).start();
 		(new Thread(new Consumer(m))).start();
 		System.out.println("Main method end");
@@ -15,12 +15,12 @@ public class ProducerConsumer {
 
 }
 
-class Message{
+class Message1{
 	private String message;
 	private boolean empty= true;
 	
 	public synchronized void send(String message){
-		System.out.println("Message '"+ message+ "' has entered send function!");
+		System.out.println("Message1 '"+ message+ "' has entered send function!");
 		while(!empty){
 			try {
 				wait();
@@ -33,11 +33,11 @@ class Message{
 		empty=false;
 		this.message=message;
 		notifyAll();
-		System.out.println("Message '"+ message+ "' sent!");
+		System.out.println("Message1 '"+ message+ "' sent!");
 	}
 	
 	public synchronized String receive(){
-		System.out.println("Message receive function()!");
+		System.out.println("Message1 receive function()!");
 		while(empty){
 			try {
 				wait();
@@ -49,15 +49,15 @@ class Message{
 		//message received now empty the variable
 		empty=true;
 		notifyAll();
-		System.out.println("Message '"+ message+ "' received!");
+		System.out.println("Message1 '"+ message+ "' received!");
 		return message;
 	}
 }
 
 class Producer implements Runnable{
-	private Message message;
+	private Message1 message;
 	
-	public Producer(Message message) {
+	public Producer(Message1 message) {
 		// TODO Auto-generated constructor stub
 		this.message= message;
 	}
@@ -82,9 +82,9 @@ class Producer implements Runnable{
 }
 
 class Consumer implements Runnable{
-	private Message message;
+	private Message1 message;
 	
-	public Consumer(Message message) {
+	public Consumer(Message1 message) {
 		// TODO Auto-generated constructor stub
 		this.message= message;
 	}
