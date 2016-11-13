@@ -3,18 +3,23 @@ package com.learning.thread.threadTut11;
 import java.util.concurrent.CountDownLatch;
 
 public class AmusementPark implements Runnable {
-	private final int SIZE=3;
-	CountDownLatch latch= new CountDownLatch(SIZE);
+	
+	CountDownLatch latch;
+
+	public AmusementPark(CountDownLatch latch) {
+		this.latch=latch;
+	}
 
 	@Override
 	public void run() {
+		System.out.println(Thread.currentThread().getName()+ " is on his way ");
 		try {
-			latch.await();
+			Thread.sleep((long) (Math.random()*4000));
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Ride started with "+SIZE+" people.");
+		latch.countDown();
+		System.out.println(Thread.currentThread().getName()+ " has reached ");
 	}
 
 }

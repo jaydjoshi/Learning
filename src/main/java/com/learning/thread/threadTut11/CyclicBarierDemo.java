@@ -1,12 +1,16 @@
 package com.learning.thread.threadTut11;
 
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
 
-public class CountDownLatchDemo {
+public class CyclicBarierDemo {
 
 	public static void main(String[] args) {
-		CountDownLatch latch = new CountDownLatch(3);
-		AmusementPark park = new AmusementPark(latch);
+		
+		CyclicBarrier barrier = new CyclicBarrier(4, () -> {
+			System.out.println("Lets play everyone reached");
+		});
+		
+		Friend park = new Friend(barrier);
 		
 		System.out.println("Amusment park started");
 		
@@ -19,16 +23,6 @@ public class CountDownLatchDemo {
 		t2.start();
 		t3.start();
 		t4.start();
-		
-		try {
-			latch.await();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("Ride started. :)");
-		
-		System.out.println("Amusment park stopped");
 		
 	}
 
