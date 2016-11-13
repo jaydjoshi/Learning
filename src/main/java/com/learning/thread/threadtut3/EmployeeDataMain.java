@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class EmployeeDataMain {
@@ -16,6 +17,8 @@ public class EmployeeDataMain {
 		List<ArrayList<Integer>> lists = new ArrayList<>();
 		ArrayList<Integer> array = new ArrayList<>();
 		ArrayList<FutureTask> futures = new ArrayList<>();
+		
+		
 		for (int i = 0; i < 1000; i++) {
 			ids.add(i);
 		}
@@ -38,7 +41,13 @@ public class EmployeeDataMain {
 		
 		for (List list : lists) {
 			if(list!=null){
+				
+				try{
 				futures.add((FutureTask) exec.submit(new WorkerList(list, "Thread"+ ++count1)));
+				}
+				finally{
+					
+				}
 			}
 		}
 		
