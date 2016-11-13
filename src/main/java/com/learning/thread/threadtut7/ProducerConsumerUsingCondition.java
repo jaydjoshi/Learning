@@ -55,7 +55,7 @@ class Producer implements Runnable{
 				
 				System.out.println("Value sent : "+i);
 				queue.add(i);
-				consumerCondition.signal();
+				consumerCondition.signalAll();
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -95,7 +95,7 @@ class Consumer implements Runnable{
 				}
 				
 				int val = queue.remove();
-				producerCondition.signal();
+				producerCondition.signalAll();
 				System.out.println("Recieved value : "+val);
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
