@@ -45,10 +45,13 @@ public class EmployeeDataMain {
 		exec.shutdown();
 		
 		exec.awaitTermination(2, TimeUnit.MINUTES);
-		
+		int result = 0;
 		for (FutureTask futureTask : futures) {
 			System.out.println("Retruned value : "+futureTask.get());
+			result = result + (Integer)futureTask.get(); 
 		}
+		
+		System.out.println("Number of retrived employees :"+result);
 		
 	}
 
