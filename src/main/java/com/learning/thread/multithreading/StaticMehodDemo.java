@@ -3,8 +3,9 @@ package com.learning.thread.multithreading;
 public class StaticMehodDemo {
 
 	public static void main(String[] args) {
-
 		Employee emp = new Employee();
+
+		/*Employee emp = new Employee();
 		Thread thread1 =  new Thread(() -> { 
 			long start = System.currentTimeMillis();
 			System.out.println("Started 1 at "+start);
@@ -17,11 +18,11 @@ public class StaticMehodDemo {
 		Thread thread4 =  new Thread(() -> { 
 			long start = System.currentTimeMillis();
 			System.out.println("Started 4 at "+start);
-			int percent = Employee.getPfPercentage();
+			int percent = Employee.getPfPercentage1();
 			System.out.println("Percent : "+percent);
 			long end = System.currentTimeMillis();
 			System.out.println("End 4 in "+(end-start));
-		}) ;
+		}) ;*/
 		
 		Thread thread2 =  new Thread(() -> { 
 			long start = System.currentTimeMillis();
@@ -41,10 +42,10 @@ public class StaticMehodDemo {
 			System.out.println("End 3 in "+(end-start));
 		}) ;
 		
-		thread1.start();
+		//thread1.start();
 		thread2.start();
 		thread3.start();
-		thread4.start();
+		//thread4.start();
 	}
 
 }
@@ -55,11 +56,12 @@ class Employee {
 	public static int pfPercent =12;
 	private int count=0;
 	static Object mutex1 = new Object();
+	//static Object mutex2 = new Object();
 	Object mutex2 = new Object();
 	Object mutex3 = new Object();
 	
 	public static int getPfPercentage(){
-		synchronized(Employee.class){
+		//synchronized(mutex2){
 		try {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
@@ -67,7 +69,19 @@ class Employee {
 			e.printStackTrace();
 		}
 		return pfPercent;
+		//}
+	}
+	
+	public static int getPfPercentage1(){
+		//synchronized(mutex1){
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return pfPercent;
+		//}
 	}
 	
 	public int getCount(){

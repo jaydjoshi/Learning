@@ -35,7 +35,7 @@ public class EmployeeDataMain {
 		
 		System.out.println("Start");
 		
-		ExecutorService exec = Executors.newFixedThreadPool(4);
+		ExecutorService exec = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()+1);
 		int count1=0;
 		
 		for (List list : lists) {

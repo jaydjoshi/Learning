@@ -19,6 +19,9 @@ public class ProducerConsumerUsingSemaphore {
 		Thread consumer = new Thread(new Consumer(producerSemaphore,consumerSemaphore,queue));
 		consumer.start();
 		
+		Thread consumer1 = new Thread(new Consumer(producerSemaphore,consumerSemaphore,queue));
+		consumer1.start();
+		
 		System.out.println("End");
 	}
 
@@ -77,7 +80,7 @@ class Consumer implements Runnable{
 				int val = queue.remove();
 				producerSemaphore.release();
 				System.out.println("Recieved value : "+val);
-				Thread.sleep(1000);
+				Thread.sleep(400);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

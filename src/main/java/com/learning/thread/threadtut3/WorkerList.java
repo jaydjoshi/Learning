@@ -9,10 +9,8 @@ public class WorkerList implements Callable<Integer> {
 	List<Integer> list;
 	String name;
 	Random random = new Random();
-			
-			
-	
-	public WorkerList(List list,String name) {
+
+	public WorkerList(List<Integer> list,String name) {
 		this.list=list;
 		this.name=name;
 	}
@@ -27,7 +25,7 @@ public class WorkerList implements Callable<Integer> {
 
 	private int doDbProcessing(List<Integer> list2) throws InterruptedException {
 		
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		return (int) (Math.random()*100);
 	}
 

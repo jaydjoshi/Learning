@@ -10,7 +10,6 @@ public class MyThread extends Thread {
 			Thread.sleep(1000);
 			doDBProcessing();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -18,7 +17,6 @@ public class MyThread extends Thread {
 	}
 	
 	private void doDBProcessing() throws InterruptedException {
-		// TODO Auto-generated method stub
 		Thread.sleep(5000);
 		
 	}

@@ -12,8 +12,14 @@ public class ProducerConsumerHardWay {
 		Thread producer = new Thread(new Producer(helper));
 		producer.start();
 		
+		Thread producer1 = new Thread(new Producer(helper));
+		producer1.start();
+		
 		Thread consumer = new Thread(new Consumer(helper));
 		consumer.start();
+		
+		Thread consumer1 = new Thread(new Consumer(helper));
+		consumer1.start();
 		
 		System.out.println("End");
 	}
@@ -73,7 +79,7 @@ class Producer implements Runnable{
 			
 			helper.send(i);
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -101,7 +107,7 @@ class Consumer implements Runnable{
 				System.out.println(helper.recieve());
 			}while(helper.recieve()!=-1);
 			
-			Thread.sleep(random.nextInt(4000));
+			Thread.sleep(random.nextInt(400));
 			
 		} catch (InterruptedException e) {
 			e.printStackTrace();

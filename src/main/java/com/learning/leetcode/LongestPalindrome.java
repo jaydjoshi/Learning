@@ -3,11 +3,18 @@ package com.learning.leetcode;
 public class LongestPalindrome {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("String : "+longestPalindrome("ababa")+" \nlength : "+longestPalindrome("ababa").length());
 		System.out.println("String : "+longestPalindrome("ababaa")+" \nlength : "+longestPalindrome("ababaa").length());
 		System.out.println("String : "+longestPalindrome("vababaa")+" \nlength : "+longestPalindrome("vababaa").length());
 		System.out.println("String : "+longestPalindrome("daaba")+" \nlength : "+longestPalindrome("daaba").length());
+		
+		System.out.println("**********************************************************************************");
+		
+		System.out.println("String : "+ManchersAlgo("ababa"));
+		System.out.println("String : "+ManchersAlgo("ababaa"));
+		System.out.println("String : "+ManchersAlgo("vababaa"));
+		System.out.println("String : "+ManchersAlgo("daaba"));
+		System.out.println("String : "+ManchersAlgo("daabba"));
 
 	}
 	
@@ -49,6 +56,47 @@ public class LongestPalindrome {
 		}
 		return null;
 		
+	}
+	
+	public static int ManchersAlgo(String str){
+		char[] charArr = str.toCharArray();
+		int[] intArr = new int[charArr.length];
+		
+		for (int i = 0; i < charArr.length; i++) {
+			char c = charArr[i];
+			intArr[i] = checkMaxPalindromeAround(c,charArr,i);
+		}
+		
+		int maxLength = checkMaxLength(intArr);
+		return maxLength;
+	}
+
+	private static int checkMaxLength(int[] intArr) {
+		int max = intArr[0];
+		for (int i = 0; i < intArr.length; i++) {
+			if(max<intArr[i])
+				max=intArr[i];
+		}
+		return max;
+	}
+
+	private static int checkMaxPalindromeAround(char c,char[] charArr, int index) {
+		int start=index,end =index;
+		int length=1;
+		start--;
+		end++;
+		while(start>=0 && end <= charArr.length-1){
+			
+			if(!(charArr[start]==charArr[end])){
+				break;
+			}
+			else{
+				length=length + 2;
+				start--;
+				end++;
+			}
+		}
+		return length;
 	}
 	
 

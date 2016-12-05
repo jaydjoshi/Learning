@@ -36,7 +36,7 @@ class Producer implements Runnable{
 
 	@Override
 	public void run() {
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 20; i++) {
 			try {
 				queue.put(i);
 				System.out.println("Value sent : "+i);
@@ -65,7 +65,7 @@ class Consumer implements Runnable{
 			try {
 				int val = queue.take();
 				System.out.println("Recieved value : "+val);
-				Thread.sleep(1000);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

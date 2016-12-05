@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 public class CountDownLatchDemo {
 
 	public static void main(String[] args) {
-		CountDownLatch latch = new CountDownLatch(3);
+		CountDownLatch latch = new CountDownLatch(4);
 		AmusementPark park = new AmusementPark(latch);
 		
 		System.out.println("Amusment park started");

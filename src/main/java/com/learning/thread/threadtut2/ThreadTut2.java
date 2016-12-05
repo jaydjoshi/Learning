@@ -11,6 +11,8 @@ public class ThreadTut2 {
 		exec.execute(new RunnableExample());
 		exec.execute(new RunnableExample());
 		exec.execute(new RunnableExample());
+		
+		
 	}
 
 }

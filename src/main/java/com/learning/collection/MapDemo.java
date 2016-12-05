@@ -14,9 +14,10 @@ public class MapDemo {
 		// TODO Auto-generated method stub
 		
 		//Map<String,Integer> map = new HashMap<>();
-		//Map<String,Integer> map = new LinkedHashMap<>();
-		Map<String,Integer> map = new TreeMap<>();
+		Map<String,Integer> map = new LinkedHashMap<>();
+		//Map<String,Integer> map = new TreeMap<>();
 		Map<String,Integer> conMap = new ConcurrentHashMap<String, Integer>();
+		
 		map.put("jay", 1);
 		map.put("yaj", 2);
 		map.put("ajy", 3);

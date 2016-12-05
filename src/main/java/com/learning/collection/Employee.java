@@ -1,6 +1,6 @@
 package com.learning.collection;
 
-public class Employee {
+public final class Employee {
 	private final int id;
 	private final String name;
 	

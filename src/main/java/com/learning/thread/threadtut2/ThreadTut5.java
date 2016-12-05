@@ -12,6 +12,7 @@ public class ThreadTut5 {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		ExecutorService exec = Executors.newCachedThreadPool();
 		
+		
 		ArrayList<FutureTask<Integer>> futures = new ArrayList<>();
 		List<Integer> list = new ArrayList<>();
 		
@@ -20,6 +21,9 @@ public class ThreadTut5 {
 		futures.add((FutureTask<Integer>) exec.submit(new CallableExample()));
 		futures.add((FutureTask<Integer>) exec.submit(new CallableExample()));
 		futures.add((FutureTask<Integer>) exec.submit(new CallableExample()));
+		futures.add((FutureTask<Integer>) exec.submit(new CallableExample()));
+		futures.add((FutureTask<Integer>) exec.submit(new CallableExample()));
+		
 		
 		//future.get() awaits for the completion of the submit. Hence if called above it executes sequentially
 		exec.shutdown();
